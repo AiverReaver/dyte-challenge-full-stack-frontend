@@ -1,10 +1,21 @@
 import "./App.css";
 import { LoginForm } from "./Auth/LoginForm";
 import { useCallback, useEffect, useState } from "react";
-import { updateTokenHeadersInAxiosInstance } from "./axios";
+import axios, { updateTokenHeadersInAxiosInstance } from "./axios";
+import { UrlList } from "./Url/UrlList";
+import { Shorten } from "./Url/Shorten";
 
 function App() {
   const [loggedInUser, setLoggedinUser] = useState(null);
+  const [shortenUrls, setShortenurls] = useState([]);
+
+  const getAllUrls = useCallback(async () => {
+    try {
+      const { data } = await axios.get("url");
+
+      setShortenurls(data);
+    } catch {}
+  }, []);
 
   const onLogoutclick = useCallback(() => {
     setLoggedinUser(null);
@@ -12,6 +23,10 @@ function App() {
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("username");
   }, []);
+
+  useEffect(() => {
+    getAllUrls();
+  }, [getAllUrls]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,7 +55,15 @@ function App() {
         Logout
       </button>
       {loggedInUser ? (
-        <div>welcome {loggedInUser?.username}</div>
+        <div style={{ width: "100%" }}>
+          welcome {loggedInUser?.username}
+          <Shorten
+            onShortenurl={(url) =>
+              setShortenurls((prevState) => [...prevState, url])
+            }
+          />
+          <UrlList shortenUrls={shortenUrls} />
+        </div>
       ) : (
         <LoginForm onLoginSuccess={setLoggedinUser} />
       )}

@@ -1,0 +1,15 @@
+.form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form input[type="text"] {
+    width: 80%;
+}
+
+.form input[type="submit"] {
+    height: 40px;
+}
