@@ -1,16 +1,15 @@
 import React from "react";
+import classes from "./UrlItem.module.css";
 
-export const UrlItem = ({ shorturl, visitor, views, onDeleteItem }) => {
+export const UrlItem = ({
+  shorturl,
+  visitor,
+  views,
+  onDeleteItem,
+  onUpdateClick,
+}) => {
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "auto auto auto auto",
-        width: "100%",
-        justifyContent: "space-around",
-        margin: "10px",
-      }}
-    >
+    <div className={classes.item__container}>
       <div>
         <a href={`http://${shorturl}`} target="_blank" rel="noreferrer">
           {shorturl}
@@ -18,11 +17,11 @@ export const UrlItem = ({ shorturl, visitor, views, onDeleteItem }) => {
       </div>
       <div>{visitor}</div>
       <div>{views}</div>
-      <button
-        style={{ backgroundColor: "red", borderColor: "red" }}
-        onClick={onDeleteItem}
-      >
+      <button className={classes.delete__btn} onClick={onDeleteItem}>
         delete
+      </button>
+      <button className={classes.update__btn} onClick={onUpdateClick}>
+        update
       </button>
     </div>
   );
