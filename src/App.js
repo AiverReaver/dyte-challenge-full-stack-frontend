@@ -25,10 +25,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getAllUrls();
-  }, [getAllUrls]);
-
-  useEffect(() => {
     const token = localStorage.getItem("token");
     const refresh_token = localStorage.getItem("refreshToken");
     const username = localStorage.getItem("username");
@@ -46,8 +42,10 @@ function App() {
       localStorage.setItem("token", token);
       localStorage.setItem("refreshToken", refresh_token);
       localStorage.setItem("username", username);
+
+      getAllUrls();
     }
-  }, [loggedInUser]);
+  }, [loggedInUser, getAllUrls]);
 
   return (
     <div className="App">
