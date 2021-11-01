@@ -55,9 +55,11 @@ export const Home = (props) => {
         <div style={{ width: "100%" }}>
           welcome {loggedInUser?.username}
           <Shorten
-            onShortenurl={(url) =>
-              setShortenurls((prevState) => [...prevState, url])
-            }
+            onShortenurl={(url) => {
+              if (!url.old) {
+                setShortenurls((prevState) => [...prevState, url]);
+              }
+            }}
           />
           <UrlList shortenUrls={shortenUrls} setShortenurls={setShortenurls} />
         </div>
