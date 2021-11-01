@@ -10,3 +10,14 @@ export const useForm = () => {
 
   return { formState, onChange };
 };
+
+export const useUniqueIndentifier = (shortId) => {
+  const vistedUrls = JSON.parse(localStorage.getItem("visitedUrl") || "{}")
+
+  const setVisited = useCallback(() => {
+    localStorage.setItem("visitedUrl",JSON.stringify({...vistedUrls, [shortId]: true}))
+
+  }, [shortId, vistedUrls])
+
+  return {isVisited: vistedUrls[shortId] || false, setVisited}
+}

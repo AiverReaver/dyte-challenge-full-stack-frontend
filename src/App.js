@@ -1,11 +1,8 @@
 import "./App.css";
-import { LoginForm } from "./Auth/LoginForm";
-import { useCallback, useEffect, useState } from "react";
-import axios, { updateTokenHeadersInAxiosInstance } from "./axios";
-import { UrlList } from "./Url/UrlList";
-import { Shorten } from "./Url/Shorten";
 import {BrowserRouter, Route} from 'react-router-dom'
 import { Home } from "./Home";
+import { RedirectUrl } from "./Url/RedirectUrl";
+
 
 function App() {
  
@@ -14,6 +11,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Route path="/" exact component={Home} />
+        <Route path="/:shortId" exact component={RedirectUrl} />
         
       </BrowserRouter>
     </div>
