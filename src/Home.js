@@ -60,7 +60,7 @@ export const Home = (props) => {
               setShortenurls((prevState) => [...prevState, url])
             }
           />
-          <UrlList shortenUrls={shortenUrls} />
+          <UrlList shortenUrls={shortenUrls} setShortenurls={setShortenurls} />
         </div>
       ) : (
         <LoginForm onLoginSuccess={setLoggedinUser} />
