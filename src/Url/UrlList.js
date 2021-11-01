@@ -45,8 +45,26 @@ export const UrlList = ({ shortenUrls, setShortenurls }) => {
 
   return (
     <div style={{ width: "100%" }}>
+      <div className="url-container">
+        <strong>Url</strong>
+        <strong>Unique view</strong>
+        <strong>Views</strong>
+        <strong>Platform</strong>
+        <strong>Browser</strong>
+        <strong>Delete</strong>
+        <strong>Update</strong>
+      </div>
       {shortenUrls.map(
-        ({ shortUrl, visitors, views, shortId, id, actualUrl }) =>
+        ({
+          shortUrl,
+          visitors,
+          views,
+          shortId,
+          id,
+          actualUrl,
+          lastDevice,
+          lastBrowser,
+        }) =>
           urlToUpdate === id ? (
             <UpdateUrlForm
               oldShortId={shortId}
@@ -61,6 +79,8 @@ export const UrlList = ({ shortenUrls, setShortenurls }) => {
               shorturl={shortUrl}
               visitor={visitors}
               views={views}
+              lastBrowser={lastBrowser}
+              lastDevice={lastDevice}
               onDeleteItem={() => deleteShortenUrl(shortId)}
               onUpdateClick={() => setUrlToUpdate(id)}
             />

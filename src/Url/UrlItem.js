@@ -5,11 +5,13 @@ export const UrlItem = ({
   shorturl,
   visitor,
   views,
+  lastDevice,
+  lastBrowser,
   onDeleteItem,
   onUpdateClick,
 }) => {
   return (
-    <div className={classes.item__container}>
+    <div className="url-container">
       <div>
         <a href={`http://${shorturl}`} target="_blank" rel="noreferrer">
           {shorturl}
@@ -17,6 +19,8 @@ export const UrlItem = ({
       </div>
       <div>{visitor}</div>
       <div>{views}</div>
+      <div>{lastDevice}</div>
+      <div>{lastBrowser}</div>
       <button className={classes.delete__btn} onClick={onDeleteItem}>
         delete
       </button>

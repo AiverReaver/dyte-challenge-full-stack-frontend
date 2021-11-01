@@ -4,7 +4,6 @@ import axios, { updateTokenHeadersInAxiosInstance } from "./axios";
 import { UrlList } from "./Url/UrlList";
 import { Shorten } from "./Url/Shorten";
 
-
 export const Home = (props) => {
   const [loggedInUser, setLoggedinUser] = useState(null);
   const [shortenUrls, setShortenurls] = useState([]);
@@ -67,6 +66,4 @@ export const Home = (props) => {
       )}
     </>
   );
-}
-
-
+};

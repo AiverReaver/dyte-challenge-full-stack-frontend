@@ -19,3 +19,11 @@
   width: 90%;
   margin: 0 auto;
 }
+
+.url-container {
+  display: grid;
+  grid-template-columns: 30% 50px 50px 100px 100px 80px 80px;
+  width: 100%;
+  justify-content: space-around;
+  margin: 10px;
+}
