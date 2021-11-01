@@ -20,14 +20,15 @@ export const Shorten = ({ onShortenurl }) => {
 
   return (
     <div>
-      <form className={classes.form} onSubmit={shortenUrl}>
+      <form className="form-inline" onSubmit={shortenUrl}>
         <input
           type="text"
           placeholder="Enter your Url"
           value={longUrl}
           onChange={(event) => setLongUrl(event.target.value)}
+          className={classes.text}
         />
-        <input type="submit" value="Shorten" />
+        <input type="submit" value="Shorten" className="btn" />
       </form>
     </div>
   );

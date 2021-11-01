@@ -11,3 +11,11 @@
   top: 10px;
   right: 10px
 }
+
+.form-inline {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}

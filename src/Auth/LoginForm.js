@@ -5,7 +5,7 @@ import { useForm } from "../utils/CustomHooks";
 import { CommonFields } from "./CommonField";
 
 export const LoginForm = ({ onLoginSuccess }) => {
-  const { formState, onChange } = useForm();
+  const { formState, onChange } = useForm({ username: "", password: "" });
 
   const onLogin = useCallback(
     async (event) => {
