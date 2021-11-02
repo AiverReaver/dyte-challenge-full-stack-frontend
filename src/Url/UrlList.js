@@ -76,7 +76,7 @@ export const UrlList = ({ shortenUrls, setShortenurls }) => {
             <UrlItem
               key={id}
               shortId={shortId}
-              shorturl={shortUrl}
+              shorturl={`${window.location.origin}/${shortId}`}
               visitor={visitors}
               views={views}
               lastBrowser={lastBrowser}

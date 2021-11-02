@@ -13,7 +13,7 @@ export const UrlItem = ({
   return (
     <div className="url-container">
       <div>
-        <a href={`http://${shorturl}`} target="_blank" rel="noreferrer">
+        <a href={shorturl} target="_blank" rel="noreferrer">
           {shorturl}
         </a>
       </div>
