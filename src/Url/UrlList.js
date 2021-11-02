@@ -70,6 +70,7 @@ export const UrlList = ({ shortenUrls, setShortenurls }) => {
               oldShortId={shortId}
               oldActualurl={actualUrl}
               onUpdateItem={(val) => updateShortenUrl(id, val)}
+              onCancel={() => setUrlToUpdate(-1)}
               key={id}
             />
           ) : (

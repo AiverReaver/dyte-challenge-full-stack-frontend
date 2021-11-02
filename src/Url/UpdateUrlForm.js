@@ -1,7 +1,12 @@
 import React from "react";
 import { useForm } from "../utils/CustomHooks";
 
-export const UpdateUrlForm = ({ oldShortId, oldActualurl, onUpdateItem }) => {
+export const UpdateUrlForm = ({
+  oldShortId,
+  oldActualurl,
+  onUpdateItem,
+  onCancel,
+}) => {
   const { formState, onChange } = useForm({
     newShortId: oldShortId,
     newActualUrl: oldActualurl,
@@ -33,6 +38,7 @@ export const UpdateUrlForm = ({ oldShortId, oldActualurl, onUpdateItem }) => {
         onChange={onChange}
       />
       <input type="submit" value="Save" />
+      <input type="button" value="Cancel" onClick={onCancel} />
     </form>
   );
 };
