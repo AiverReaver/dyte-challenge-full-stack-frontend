@@ -30,7 +30,7 @@ export const UrlList = ({ shortenUrls, setShortenurls }) => {
           preState.map((url) => {
             if (id === url.id) {
               url.shortId = newShortId;
-              url.shortUrl = url.shortUrl.split("/")[0] + "/" + newShortId;
+              url.shortUrl = window.location.origin + "/" + newShortId;
               url.actualUrl = newActualUrl;
             }
             return url;
@@ -56,7 +56,6 @@ export const UrlList = ({ shortenUrls, setShortenurls }) => {
       </div>
       {shortenUrls.map(
         ({
-          shortUrl,
           visitors,
           views,
           shortId,
