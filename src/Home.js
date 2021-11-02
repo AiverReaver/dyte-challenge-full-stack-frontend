@@ -48,21 +48,26 @@ export const Home = (props) => {
 
   return (
     <>
-      <button className="logout-btn" onClick={onLogoutclick}>
-        Logout
-      </button>
       {loggedInUser ? (
-        <div style={{ width: "100%" }}>
-          welcome {loggedInUser?.username}
-          <Shorten
-            onShortenurl={(url) => {
-              if (!url.old) {
-                setShortenurls((prevState) => [...prevState, url]);
-              }
-            }}
-          />
-          <UrlList shortenUrls={shortenUrls} setShortenurls={setShortenurls} />
-        </div>
+        <>
+          <button className="logout-btn" onClick={onLogoutclick}>
+            Logout
+          </button>
+          <div style={{ width: "100%" }}>
+            welcome {loggedInUser?.username}
+            <Shorten
+              onShortenurl={(url) => {
+                if (!url.old) {
+                  setShortenurls((prevState) => [...prevState, url]);
+                }
+              }}
+            />
+            <UrlList
+              shortenUrls={shortenUrls}
+              setShortenurls={setShortenurls}
+            />
+          </div>
+        </>
       ) : (
         <LoginForm onLoginSuccess={setLoggedinUser} />
       )}

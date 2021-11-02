@@ -28,7 +28,12 @@ export const LoginForm = ({ onLoginSuccess }) => {
     <form onSubmit={onLogin}>
       <CommonFields {...formState} onChange={onChange} />
       <input type="submit" value="Login" />
-      <input type="button" value="Register" onClick={onRegister} />
+      <input
+        style={{ marginLeft: "10px" }}
+        type="button"
+        value="Register"
+        onClick={onRegister}
+      />
     </form>
   );
 };
